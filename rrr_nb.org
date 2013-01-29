@@ -55,5 +55,27 @@ Okay, so taking these points into consideration, here are my working rules:
 3. When you hit a stopping point, and some significant progress has been made, =git add .= and =git commit=, or just =git commit -a=.  This will pop up an editor to write the commit message.  Or use =git commit -m= plus a message in quote to add a short message.
 4. If you are in the middle of something AND you know you will come back to it soon, AND you are not worried about losing what you did, you can put off the commit until later.
 5. Make a rule about where the repo should "live."  If not on GitHub, and you use multiple machines, make a rule about which machine should always have the most up-to-date repo.  Collaboration is different. "Self-collaboration" can be confusing.  DON'T make copies of the repo on your own machine (do branching instead).
+6. Use =.gitignore= file to simplify commits. Avoid "manual ignore" by leaving a bunch of files untracked but still visible to git.
 
 That's pretty simple, really.
+
+*** Upshot
+This is the "base" because:
+  - it involves minimal "new stuff".  You work the same as you always do, with whatever programs you want.
+  - you're just building an additional habit of logging that work, and committing changes to a VCS.
+  - this very simple use of git is easy to learn, and git is easy to install, and cross-plaform.
+  - it will insidiously introduce you to the value of simple text, when you get to the point of wanting to diff commits.
+  - you can start doing this in an hour or less.
+** Notebook
+*** What?
+The next big step is to dive into the idea of keeping a "reproducible research notebook" (RRNB).  This is the core of the system I'm imagining, because it's a flexible way to start folding more and more activities into a reproducible format.
+*** Why?
+**** Philosophical
+This is all about recording the scientific process, and making it easier and easier for other people to reproduce and replicate your work.  These are big things!  The notebook is what keeps it all in one place.
+**** Ethical
+Transparency, transparency, transparency!
+**** Practical
+The idea is one-stop shopping for all of your work.  You put your ideas into it.  You put your literature and comments/notes on papers into it.  You put your code into it.  You might even put your data into it, but you can at least put links to your data into it. You can also manage TODOs (using org-mode) and create a full working environment within the notebook.  How did you run that analysis from 3 papers ago?  Right there in the notebook (or follow a link).  Where did you see the idea for this analysis?  Link to a website/paper/whatever.  Could you share some papers where someone can read about X?  Tangle out the BibTeX info, or export a whole section with all your notes as well. And it's all simple text!
+*** How?
+[[http://orgmode.org/][Emacs and Org-mode!]]
+*** Upshot
