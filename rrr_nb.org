@@ -9,3 +9,51 @@ I'm not sure about the format.  Initially I was thinking of a big book, with Par
 But I'm starting to re-think Part II. One of the goals needs to be to keep the cost of entry low.  And the problem is that people will come to this with different experiences, different habits, and different needs.  Some linguists may not do any statistical analysis at all.  Some psycholinguists will be interested in starting with the stats stuff, and would benefit if that's all they worked on. Additionally, I'm thinking that for the implementation stuff, I will minimally need three "pieces" for each tool/lesson: (1) motivation (/why/ is this a good thing?), (2) "walkthrough" tutorials (/how/ do you do it?), and (3) reference material (for people to refer back to, after completing the walkthroughs).  Putting all that in one monster PDF may not be the best thing., especially if I want to try a more interactive format for the walkthroughs.
 
 However, I do want the ability to link back and forth.  I would like a flow from "why is X important?" to "how do I do X?" and back again. Maybe just a series of linked PDFs would be good.
+* Initial workflow ideas
+** Base
+*** What?
+The base of the workflow is "track and document changes."  This means using a VCS (version control system/software).  I will use [[http:git-scm.com][git]].
+
+The idea here is that at many point along the way in developing any documents or files related to research, changes are tracked, documentation is added, and a history of development is created over time. The VCS can use that history to "rewind the tape," compare versions, and manage collaboration.
+*** Why?
+**** Philosophical
+Research involves revisions. Lots and lots of changes and revisions. Sometimes those revisions are in the "right" direction, but sometimes, an earlier version of a document (theory/code/stimuli/etc.) or an "alternative" version (if a branching model of development is used) is better.  A good VCS enables movement along this history of revisions and changes in order to facilitate the best possible research.
+**** Ethical
+A good VCS promotes transparency, and may even do a good job of tracking contributions of collaborators, which can help in the distribution of credit (authorship, etc.). But it also improves efficiency when older revisions need to be recovered, and thus can represent signficant savings in time (and money).
+**** Practical
+See [[http://jeromyanglim.blogspot.com/2010/11/getting-started-with-git-egit-eclipse.html][this link]] and links therein for some other discussion, as well as [[http://www.kieranhealy.org/files/misc/workflow-apps.pdf][this classic by Kieran Healy]]. I'll paraphrase and expand a little here.
+  - You have access to all older revisions without an explosion of (often confusingly-named) files.
+  - It's a universal "track changes" mode.
+  - With a good VCS, you can easily compare ("diff") versions to see exactly what changed and when.
+  - If you back up your VCS in the cloud or some other method, you have /backed-up/ access to all your versions and revisions, which is better than just a single backed-up "final draft."
+  - You can "try out" some different analyses or development angles, and switch back or combine them later.
+  - You can facilitate collaboration (assuming you get your collaborators to work with the system, or assuming you can manage it for your collaborators).
+  - The habit of logging ("committing") changes and documenting them should build more efficient and reproducible work habits.
+  - If you maintain your VCS, you can return to the project months or years later, and not have to wonder about where your most up-to-date files are, or where that initial version went.
+*** How?
+**** Basic principles
+     - The system must be "lightweight" -- easy to use, and easy to implement, without interrupting ACTUAL WORK. In other words, if it gets in the way, it's not helpful.
+     - The system needs to be robust against "error." If you have to everything *just right*, it's too burdensome. The point is to help guard against error, not screw up all your files and create more work for you.
+**** Implementation
+     - Use git
+       - ONLY work on projects that are git repos.  If you are working on something that's not utterly "disposable," make a git repo (=git init=) and track changes.
+       - Any time you *stop* working, you should commit! This is maybe the hardest, since sometimes you get interrupted.  So this is an important habit.  Ideally, committing changes at least once at the end of the day is best.  BUT even if you only commit changes once a week, it's a big improvement on not using a VCS!  So I think in practice, you need to commit changes on a regular-enough schedule that corresponds to "significant additions," which may be defined differently person to person.  Committing after every sentence in a draft is obviously overkill.  Use =git log= and =git status= to check on what has uncommitted changes, and when changes were last committed.
+       - Don't proliferate the repo unnecessarily.  I mean, trust the VCS, and use =git branch=, instead of cloning the repo to some other place on your machine and working on it there. This is defeating the point!
+       - Make sure you know where the up-to-date repo is.  If you can use [[https://github.com/][GitHub]] (either because you don't mind your work being public, or because you are paying for a private repo), then pushing changes to GitHub is a great way to know exactly where your most up-to-date repo is!  Otherwise, you can use =git log= or =merge= to get things back together.
+     - When you can't use git:
+       - Act as if you are!
+       - When you would normally commit changes, just create a little commit message.
+       - When you can get access to git again (hopefully once a day, or nearly so), add the new files/changes, and use the commit message to update the repo.
+       - This requires a little more vigilance in creating the messages, though, because it's easier to lose track of changes.  For example, if you forget to comment that you changed file X, you might forget to add it to the git repo until much later.  But if you minimally keep a good record of which files you change/add, it's not that big a deal.
+
+Okay, so taking these points into consideration, here are my working rules:
+1. When starting work:
+   1. Start git anytime you do ANY work, and if it's not a repo already, use =git init=
+   2. Before making new changes, run =git status= and consider committing any uncommitted changes.
+   3. If you *can't* use git, start a "COMMIT" file to log changes as you go, keeping track of ALL files that you add/change.
+2. Work! (forget about git while you work)
+3. When you hit a stopping point, and some significant progress has been made, =git add .= and =git commit=, or just =git commit -a=.  This will pop up an editor to write the commit message.  Or use =git commit -m= plus a message in quote to add a short message.
+4. If you are in the middle of something AND you know you will come back to it soon, AND you are not worried about losing what you did, you can put off the commit until later.
+5. Make a rule about where the repo should "live."  If not on GitHub, and you use multiple machines, make a rule about which machine should always have the most up-to-date repo.  Collaboration is different. "Self-collaboration" can be confusing.  DON'T make copies of the repo on your own machine (do branching instead).
+
+That's pretty simple, really.
