@@ -1,0 +1,15 @@
+* Really Reproducible Research
+** What's this?
+This is a rough work in progress.
+** What's it about, I mean?
+In this repo, I'm developing a book and a system for "/Really/ Reproducible Research."
+** Huh?
+There's a growing interest in a number of issues involving replication and reproducibility in the sciences, particularly the cognitive and social sciences. But currently this interest has not resulted in a very deep discussion of what /reproducible/ really means, or how it might be accomplished. I'm not sure my contribution will be all that "deep" either, but it's a start.
+
+In short, "reproducible" is a lot more than just "share your data" or "share your code" --- at least, it /might/ be a lot more, and this is what I aim to explore. I will attempt to lay out a conceptual framework for talking about how reproducible some work is, and how (and why) we might strive to make our work as scientists more reproducible.
+
+The second major goal is to create an /implementation/ for my ideas, as best I can, which would help researchers to make their own work incrementally more reproducible. While I will freely endorse the idea that there are many, many tools, habits, workflows, and other systems that can enable reproducibility, I will focus on a single system of implementation. This implementation will be inherently selfish, in that I will basically be documenting my own workflow and toolkit, in order to help myself with my own work.  But I will also aim to make the system as easy to pick up as possible for other people (since that also means easy to pick up for me), and even if you hate all the specifics of my system, you should be able to glean something interesting in terms of the guiding principles, advantages, and disadvantages of my system, in order to make something that works for you.  At least that's my hope.
+** Work in progress
+As I said, this is work that is just starting, and will be pretty rough around the edges for quite a while. My purpose in making this available as a public repository is to attempt to practice what I preach from the very beginning. So I'm sure to make lots of mistakes along the way, but that's what this is all about --- learning how to do this better.
+
+So take a look around if this sounds interesting, and I'd love to hear any feedback or thoughts if you have them.
