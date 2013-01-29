@@ -1,0 +1,11 @@
+* About
+This is a "notebook" for my work on Really Reproducible Research (RRR). So it's basically a complex scratch pad for working through ideas and assembling materials for the more structured documents that are intended to be shared.
+* Thinking
+** Two projects
+So there are two sides to this thing.  On one side, the "theory."  A conceptual framework for discussing reproducibility, and getting a handle on some goals and ideas for making it work (and what it means for it to work). On the other side, an actual system in order to realize the concepts. 
+
+I'm not sure about the format.  Initially I was thinking of a big book, with Part I being the theory and Part II the implementation, but I'm less sure about that now.  I mean, I think the theory is something that could be written up as a pretty traditional article or short book. Maybe.  Still struggling a little with the structure, but I could imagine it working fine, once I decide on how I want to organize the chapters/sections. 
+
+But I'm starting to re-think Part II. One of the goals needs to be to keep the cost of entry low.  And the problem is that people will come to this with different experiences, different habits, and different needs.  Some linguists may not do any statistical analysis at all.  Some psycholinguists will be interested in starting with the stats stuff, and would benefit if that's all they worked on. Additionally, I'm thinking that for the implementation stuff, I will minimally need three "pieces" for each tool/lesson: (1) motivation (/why/ is this a good thing?), (2) "walkthrough" tutorials (/how/ do you do it?), and (3) reference material (for people to refer back to, after completing the walkthroughs).  Putting all that in one monster PDF may not be the best thing., especially if I want to try a more interactive format for the walkthroughs.
+
+However, I do want the ability to link back and forth.  I would like a flow from "why is X important?" to "how do I do X?" and back again. Maybe just a series of linked PDFs would be good.
