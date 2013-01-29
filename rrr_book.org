@@ -10,6 +10,8 @@
 #+LATEX_CLASS: book
 #+LATEX_HEADER: \usepackage[style=authoryear, backend=bibtex]{biblatex}
 #+LATEX_HEADER: \usepackage{baskervald}
+#+LATEX_HEADER: %\usepackage{verbatim}
+#+LATEX_HEADER: \usepackage{tikz}
 #+LATEX_HEADER: \addbibresource{rrr.bib}
 #+EXPORT_SELECT_TAGS: export
 #+EXPORT_EXCLUDE_TAGS: noexport
@@ -84,10 +86,34 @@ The first dimension of reproducibility is the /domain/ or the /audience/.  In sh
 *** Publication standards
 *** Wide dissemination
 ** The scientific loop
+
+#+BEGIN_LaTeX
+  \begin{tikzpicture}
+  \def \n {5}
+  \def \radius {3cm}
+  \def \margin {20}
+  \node[] at ({360/\n * 2 - 54}:\radius) {Scholarship};
+  \draw[<-, >=latex] ({360/\n * 2 +\margin - 54}:\radius) 
+    arc ({360/\n * 2 +\margin - 54}:{360/\n * 3 -\margin - 54}:\radius);
+  \node[] at ({360/\n * 1 - 54}:\radius) {Theory};
+  \draw[<-, >=latex] ({360/\n * 1 +\margin - 54}:\radius) 
+    arc ({360/\n * 1 +\margin - 54}:{360/\n * 2 -\margin - 54}:\radius);
+  \node[] at ({360/\n * 0 - 54}:\radius) {Data collection};
+  \draw[<-, >=latex] ({360/\n * 0 +\margin - 54}:\radius) 
+    arc ({360/\n * 0 +\margin - 54}:{360/\n * 1 -\margin - 54}:\radius);
+  \node[] at ({360/\n * 4 - 54}:\radius) {Analysis};
+  \draw[<-, >=latex] ({360/\n * 4 +\margin - 54}:\radius) 
+    arc ({360/\n * 4 +\margin - 54}:{360/\n * 5 -\margin - 54}:\radius);
+  \node[] at ({360/\n * 3 - 54}:\radius) {Reporting};
+  \draw[<-, >=latex] ({360/\n * 3 +\margin - 54}:\radius) 
+    arc ({360/\n * 3 +\margin - 54}:{360/\n * 4 -\margin - 54}:\radius);
+  \end{tikzpicture}
+#+END_LaTeX
 *** Scholarship
+*** Theory
 *** Data collection
 *** Data analysis
-*** Sharing
+*** Reporting
 * Implementation
 ** Guiding principles
 *** Free and open source

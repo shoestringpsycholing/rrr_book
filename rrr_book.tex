@@ -1,4 +1,4 @@
-% Created 2013-01-28 Mon 21:57
+% Created 2013-01-29 Tue 11:49
 \documentclass[11pt]{book}
 \usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
@@ -17,6 +17,8 @@
 \tolerance=1000
 \usepackage[style=authoryear, backend=bibtex]{biblatex}
 \usepackage{baskervald}
+%\usepackage{verbatim}
+\usepackage{tikz}
 \addbibresource{rrr.bib}
 \providecommand{\alert}[1]{\textbf{#1}}
 
@@ -26,7 +28,7 @@
 \hypersetup{
   pdfkeywords={},
   pdfsubject={},
-  pdfcreator={Emacs Org-mode version Org-mode version 7.8.11}}
+  pdfcreator={Emacs Org-mode version 7.8.11}}
 
 \begin{document}
 
@@ -118,14 +120,38 @@ The first dimension of reproducibility is the \emph{domain} or the \emph{audienc
 \label{sec-1-2-5}
 \chapter{The scientific loop}
 \label{sec-1-3}
+
+
+  \begin{tikzpicture}
+  \def \n {5}
+  \def \radius {3cm}
+  \def \margin {20}
+  \node[] at ({360/\n * 2 - 54}:\radius) {Scholarship};
+  \draw[<-, >=latex] ({360/\n * 2 +\margin - 54}:\radius) 
+    arc ({360/\n * 2 +\margin - 54}:{360/\n * 3 -\margin - 54}:\radius);
+  \node[] at ({360/\n * 1 - 54}:\radius) {Theory};
+  \draw[<-, >=latex] ({360/\n * 1 +\margin - 54}:\radius) 
+    arc ({360/\n * 1 +\margin - 54}:{360/\n * 2 -\margin - 54}:\radius);
+  \node[] at ({360/\n * 0 - 54}:\radius) {Data collection};
+  \draw[<-, >=latex] ({360/\n * 0 +\margin - 54}:\radius) 
+    arc ({360/\n * 0 +\margin - 54}:{360/\n * 1 -\margin - 54}:\radius);
+  \node[] at ({360/\n * 4 - 54}:\radius) {Analysis};
+  \draw[<-, >=latex] ({360/\n * 4 +\margin - 54}:\radius) 
+    arc ({360/\n * 4 +\margin - 54}:{360/\n * 5 -\margin - 54}:\radius);
+  \node[] at ({360/\n * 3 - 54}:\radius) {Reporting};
+  \draw[<-, >=latex] ({360/\n * 3 +\margin - 54}:\radius) 
+    arc ({360/\n * 3 +\margin - 54}:{360/\n * 4 -\margin - 54}:\radius);
+  \end{tikzpicture}
 \section{Scholarship}
 \label{sec-1-3-1}
-\section{Data collection}
+\section{Theory}
 \label{sec-1-3-2}
-\section{Data analysis}
+\section{Data collection}
 \label{sec-1-3-3}
-\section{Sharing}
+\section{Data analysis}
 \label{sec-1-3-4}
+\section{Reporting}
+\label{sec-1-3-5}
 \part{Implementation}
 \label{sec-2}
 \chapter{Guiding principles}
