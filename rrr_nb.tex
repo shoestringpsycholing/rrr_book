@@ -1,0 +1,171 @@
+% Created 2013-02-10 Sun 14:56
+\documentclass[11pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{soul}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\usepackage{baskervald}
+\usepackage[margin=1in]{geometry}
+\providecommand{\alert}[1]{\textbf{#1}}
+
+\title{rrr\_nb.org}
+\author{}
+\date{\today}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs Org-mode version 7.8.11}}
+
+\begin{document}
+
+\maketitle
+
+\setcounter{tocdepth}{4}
+\tableofcontents
+\vspace*{1cm}
+
+\section{About}
+\label{sec-1}
+
+This is a ``notebook'' for my work on Really Reproducible Research (RRR). So it's basically a complex scratch pad for working through ideas and assembling materials for the more structured documents that are intended to be shared.
+\section{Thinking}
+\label{sec-2}
+\subsection{Two projects}
+\label{sec-2-1}
+
+So there are two sides to this thing.  On one side, the ``theory.''  A conceptual framework for discussing reproducibility, and getting a handle on some goals and ideas for making it work (and what it means for it to work). On the other side, an actual system in order to realize the concepts. 
+
+I'm not sure about the format.  Initially I was thinking of a big book, with Part I being the theory and Part II the implementation, but I'm less sure about that now.  I mean, I think the theory is something that could be written up as a pretty traditional article or short book. Maybe.  Still struggling a little with the structure, but I could imagine it working fine, once I decide on how I want to organize the chapters/sections. 
+
+But I'm starting to re-think Part II. One of the goals needs to be to keep the cost of entry low.  And the problem is that people will come to this with different experiences, different habits, and different needs.  Some linguists may not do any statistical analysis at all.  Some psycholinguists will be interested in starting with the stats stuff, and would benefit if that's all they worked on. Additionally, I'm thinking that for the implementation stuff, I will minimally need three ``pieces'' for each tool/lesson: (1) motivation (\emph{why} is this a good thing?), (2) ``walkthrough'' tutorials (\emph{how} do you do it?), and (3) reference material (for people to refer back to, after completing the walkthroughs).  Putting all that in one monster PDF may not be the best thing, especially if I want to try a more interactive format for the walkthroughs.
+
+However, I do want the ability to link back and forth.  I would like a flow from ``why is X important?'' to ``how do I do X?'' and back again. Maybe just a series of linked PDFs would be good.
+\section{Initial workflow ideas}
+\label{sec-3}
+\subsection{Base}
+\label{sec-3-1}
+\subsubsection{What?}
+\label{sec-3-1-1}
+
+The base of the workflow is ``track and document changes.''  This means using a VCS (version control system/software).  I will use \href{http:git-scm.com}{git}.
+
+The idea here is that at many point along the way in developing any documents or files related to research, changes are tracked, documentation is added, and a history of development is created over time. The VCS can use that history to ``rewind the tape,'' compare versions, and manage collaboration.
+\subsubsection{Why?}
+\label{sec-3-1-2}
+\paragraph{Philosophical}
+\label{sec-3-1-2-1}
+
+Research involves revisions. Lots and lots of changes and revisions. Sometimes those revisions are in the ``right'' direction, but sometimes, an earlier version of a document (theory/code/stimuli/etc.) or an ``alternative'' version (if a branching model of development is used) is better.  A good VCS enables movement along this history of revisions and changes in order to facilitate the best possible research.
+\paragraph{Ethical}
+\label{sec-3-1-2-2}
+
+A good VCS promotes transparency, and may even do a good job of tracking contributions of collaborators, which can help in the distribution of credit (authorship, etc.). But it also improves efficiency when older revisions need to be recovered, and thus can represent signficant savings in time (and money).
+\paragraph{Practical}
+\label{sec-3-1-2-3}
+
+See \href{http://jeromyanglim.blogspot.com/2010/11/getting-started-with-git-egit-eclipse.html}{this link} and links therein for some other discussion, as well as \href{http://www.kieranhealy.org/files/misc/workflow-apps.pdf}{this classic by Kieran Healy}. I'll paraphrase and expand a little here.
+\begin{itemize}
+\item You have access to all older revisions without an explosion of (often confusingly-named) files.
+\item It's a universal ``track changes'' mode.
+\item With a good VCS, you can easily compare (``diff'') versions to see exactly what changed and when.
+\item If you back up your VCS in the cloud or some other method, you have \emph{backed-up} access to all your versions and revisions, which is better than just a single backed-up ``final draft.''
+\item You can ``try out'' some different analyses or development angles, and switch back or combine them later.
+\item You can facilitate collaboration (assuming you get your collaborators to work with the system, or assuming you can manage it for your collaborators).
+\item The habit of logging (``committing'') changes and documenting them should build more efficient and reproducible work habits.
+\item If you maintain your VCS, you can return to the project months or years later, and not have to wonder about where your most up-to-date files are, or where that initial version went.
+\end{itemize}
+\subsubsection{How?}
+\label{sec-3-1-3}
+\paragraph{Basic principles}
+\label{sec-3-1-3-1}
+
+\begin{itemize}
+\item The system must be ``lightweight'' -- easy to use, and easy to implement, without interrupting ACTUAL WORK. In other words, if it gets in the way, it's not helpful.
+\item The system needs to be robust against ``error.'' If you have to everything \textbf{just right}, it's too burdensome. The point is to help guard against error, not screw up all your files and create more work for you.
+\end{itemize}
+\paragraph{Implementation}
+\label{sec-3-1-3-2}
+
+\begin{itemize}
+\item Use git
+\begin{itemize}
+\item ONLY work on projects that are git repos.  If you are working on something that's not utterly ``disposable,'' make a git repo (\texttt{git init}) and track changes.
+\item Any time you \textbf{stop} working, you should commit! This is maybe the hardest, since sometimes you get interrupted.  So this is an important habit.  Ideally, committing changes at least once at the end of the day is best.  BUT even if you only commit changes once a week, it's a big improvement on not using a VCS!  So I think in practice, you need to commit changes on a regular-enough schedule that corresponds to ``significant additions,'' which may be defined differently person to person.  Committing after every sentence in a draft is obviously overkill.  Use \texttt{git log} and \texttt{git status} to check on what has uncommitted changes, and when changes were last committed.
+\item Don't proliferate the repo unnecessarily.  I mean, trust the VCS, and use \texttt{git branch}, instead of cloning the repo to some other place on your machine and working on it there. This is defeating the point!
+\item Make sure you know where the up-to-date repo is.  If you can use \href{https://github.com/}{GitHub} (either because you don't mind your work being public, or because you are paying for a private repo), then pushing changes to GitHub is a great way to know exactly where your most up-to-date repo is!  Otherwise, you can use \texttt{git log} or \texttt{merge} to get things back together.
+\end{itemize}
+\item When you can't use git:
+\begin{itemize}
+\item Act as if you are!
+\item When you would normally commit changes, just create a little commit message.
+\item When you can get access to git again (hopefully once a day, or nearly so), add the new files/changes, and use the commit message to update the repo.
+\item This requires a little more vigilance in creating the messages, though, because it's easier to lose track of changes.  For example, if you forget to comment that you changed file X, you might forget to add it to the git repo until much later.  But if you minimally keep a good record of which files you change/add, it's not that big a deal.
+\end{itemize}
+\end{itemize}
+
+Okay, so taking these points into consideration, here are my working rules:
+\begin{enumerate}
+\item When starting work:
+\begin{enumerate}
+\item Start git anytime you do ANY work, and if it's not a repo already, use \texttt{git init}
+\item Before making new changes, run \texttt{git status} and consider committing any uncommitted changes.
+\item If you \textbf{can't} use git, start a ``COMMIT'' file to log changes as you go, keeping track of ALL files that you add/change.
+\end{enumerate}
+\item Work! (forget about git while you work)
+\item When you hit a stopping point, and some significant progress has been made, \texttt{git add .} and \texttt{git commit}, or just \texttt{git commit -a}.  This will pop up an editor to write the commit message.  Or use \texttt{git commit -m} plus a message in quote to add a short message.
+\item If you are in the middle of something AND you know you will come back to it soon, AND you are not worried about losing what you did, you can put off the commit until later.
+\item Make a rule about where the repo should ``live.''  If not on GitHub, and you use multiple machines, make a rule about which machine should always have the most up-to-date repo.  Collaboration is different. ``Self-collaboration'' can be confusing.  DON'T make copies of the repo on your own machine (do branching instead).
+\item Use \texttt{.gitignore} file to simplify commits. Avoid ``manual ignore'' by leaving a bunch of files untracked but still visible to git.
+\end{enumerate}
+
+That's pretty simple, really.
+\subsubsection{Upshot}
+\label{sec-3-1-4}
+
+This is the ``base'' because:
+\begin{itemize}
+\item it involves minimal ``new stuff''.  You work the same as you always do, with whatever programs you want.
+\item you're just building an additional habit of logging that work, and committing changes to a VCS.
+\item this very simple use of git is easy to learn, and git is easy to install, and cross-plaform.
+\item it will insidiously introduce you to the value of simple text, when you get to the point of wanting to diff commits.
+\item you can start doing this in an hour or less.
+\end{itemize}
+\subsection{Notebook}
+\label{sec-3-2}
+\subsubsection{What?}
+\label{sec-3-2-1}
+
+The next big step is to dive into the idea of keeping a ``reproducible research notebook'' (RRNB).  This is the core of the system I'm imagining, because it's a flexible way to start folding more and more activities into a reproducible format.
+\subsubsection{Why?}
+\label{sec-3-2-2}
+\paragraph{Philosophical}
+\label{sec-3-2-2-1}
+
+This is all about recording the scientific process, and making it easier and easier for other people to reproduce and replicate your work.  These are big things!  The notebook is what keeps it all in one place.
+\paragraph{Ethical}
+\label{sec-3-2-2-2}
+
+Transparency, transparency, transparency!
+\paragraph{Practical}
+\label{sec-3-2-2-3}
+
+The idea is one-stop shopping for all of your work.  You put your ideas into it.  You put your literature and comments/notes on papers into it.  You put your code into it.  You might even put your data into it, but you can at least put links to your data into it. You can also manage TODOs (using org-mode) and create a full working environment within the notebook.  How did you run that analysis from 3 papers ago?  Right there in the notebook (or follow a link).  Where did you see the idea for this analysis?  Link to a website/paper/whatever.  Could you share some papers where someone can read about X?  Tangle out the BibTeX info, or export a whole section with all your notes as well. And it's all simple text!
+\subsubsection{How?}
+\label{sec-3-2-3}
+
+\href{http://orgmode.org/}{Emacs and Org-mode!}
+\subsubsection{Upshot}
+\label{sec-3-2-4}
+
+\end{document}

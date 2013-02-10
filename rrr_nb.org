@@ -1,3 +1,20 @@
+#+TITLE:     rrr\_nb.org
+#+AUTHOR:    
+#+EMAIL:     
+#+DATE:      \today
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:4 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+LATEX_HEADER: \usepackage{baskervald}
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+
 * About
 This is a "notebook" for my work on Really Reproducible Research (RRR). So it's basically a complex scratch pad for working through ideas and assembling materials for the more structured documents that are intended to be shared.
 * Thinking
@@ -6,10 +23,40 @@ So there are two sides to this thing.  On one side, the "theory."  A conceptual 
 
 I'm not sure about the format.  Initially I was thinking of a big book, with Part I being the theory and Part II the implementation, but I'm less sure about that now.  I mean, I think the theory is something that could be written up as a pretty traditional article or short book. Maybe.  Still struggling a little with the structure, but I could imagine it working fine, once I decide on how I want to organize the chapters/sections. 
 
-But I'm starting to re-think Part II. One of the goals needs to be to keep the cost of entry low.  And the problem is that people will come to this with different experiences, different habits, and different needs.  Some linguists may not do any statistical analysis at all.  Some psycholinguists will be interested in starting with the stats stuff, and would benefit if that's all they worked on. Additionally, I'm thinking that for the implementation stuff, I will minimally need three "pieces" for each tool/lesson: (1) motivation (/why/ is this a good thing?), (2) "walkthrough" tutorials (/how/ do you do it?), and (3) reference material (for people to refer back to, after completing the walkthroughs).  Putting all that in one monster PDF may not be the best thing., especially if I want to try a more interactive format for the walkthroughs.
+But I'm starting to re-think Part II. One of the goals needs to be to keep the cost of entry low.  And the problem is that people will come to this with different experiences, different habits, and different needs.  Some linguists may not do any statistical analysis at all.  Some psycholinguists will be interested in starting with the stats stuff, and would benefit if that's all they worked on. Additionally, I'm thinking that for the implementation stuff, I will minimally need three "pieces" for each tool/lesson: (1) motivation (/why/ is this a good thing?), (2) "walkthrough" tutorials (/how/ do you do it?), and (3) reference material (for people to refer back to, after completing the walkthroughs).  Putting all that in one monster PDF may not be the best thing, especially if I want to try a more interactive format for the walkthroughs.
 
 However, I do want the ability to link back and forth.  I would like a flow from "why is X important?" to "how do I do X?" and back again. Maybe just a series of linked PDFs would be good.
 * Initial workflow ideas
+** Overview summary
+Here's a quick summary of all the components:
+- VCS base :: Use =git= or some other VCS to track changes, record commits, etc. The main points are to:
+  - encourage a "literate" workflow, iterating work and (brief) commenting
+  - enable all the powerful =git= features such as looking back to earlier stages, branching for "safe" development, diffs, collaboration, etc.
+  - help keep your (virtual) workspaces relatively organized, without explosion of files
+- Notebook :: Use =org-mode= to create a Reproducible Research Notebook (RRNB). The main points are:
+  - Simple text format (easy to diff, portable, etc.) with lots of "fancy" features if you need them.
+  - Can be "one-stop shopping" for a research project, combining:
+    - lit reviews with bibliographic (BibTeX) info
+    - links to papers, websites, other docs, etc.
+    - notes and ideas about theory, research questions, etc., with links to other parts of the doc as needed/desired
+    - code blocks for /any/ language, used for data collection, analysis, etc., which can be used actively (i.e., run within the notebook) or "passively" (tangled to an external file to be run).
+    - tables, results, raw data, etc. (either links, or in the nifty org-mode table format)
+    - complete drafts of papers (either within same doc, or more likely in separate (linked) doc), which can be exported to LaTeX, OpenOffice, etc.
+    - TODOs and other functionality for managing a project
+  - Does not /have/ to be the end-all, but minimally useful as a place for notes, with links to other files
+  - *Scales* in complexity as needed, but does not *require* a complex set-up
+- Lit review :: Some processes in the notebook for making a lit review as "reproducible" as possible.
+  - Reproduce lit searches (when, what terms, what engines?)
+  - Reproduce lit commentary (take notes on a paper when reading)
+  - Maintain bibliographical info (create =bibtex= chunks in RRNB, can export at will as needed, never re-type biblio info again!!!). Can use text searching to search in reverse (e.g., find paper called chomsky2001on in PDF form in a project folder or centralized "research library" folder, can do text searches for "chomsky2001on" through all .org files, etc.)
+- Data collection ::
+  - Take notes on data collection
+  - Keep notes in central notebook, or linked file
+  - Keep code for collecting data in code block or linked file
+  - Use table format to keep simple spreadsheet-style notes, like dates of data collection, etc.
+- Data analysis :: 
+- Collaboration :: 
+- Writing papers :: 
 ** Base
 *** What?
 The base of the workflow is "track and document changes."  This means using a VCS (version control system/software).  I will use [[http:git-scm.com][git]].
@@ -79,3 +126,4 @@ The idea is one-stop shopping for all of your work.  You put your ideas into it.
 *** How?
 [[http://orgmode.org/][Emacs and Org-mode!]]
 *** Upshot
+    
