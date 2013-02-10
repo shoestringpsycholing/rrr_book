@@ -126,4 +126,61 @@ The idea is one-stop shopping for all of your work.  You put your ideas into it.
 *** How?
 [[http://orgmode.org/][Emacs and Org-mode!]]
 *** Upshot
-    
+* My working system
+
+** Start working
+   1. Find (or create) task in .org file (life, or some other agenda file)
+   2. Start Pomodoro (25 min.) timer
+   3. Clock in (=C-c C-x C-i=)
+   4. Start =git= bash, =cd= to project directory
+   5. Run =git status= to make sure there are no currently loose threads
+** Thinking
+   1. Use RRNB as a place to make notes, sketch out ideas, etc.
+   2. Set some sort of concrete goals for a particular "session" of thinking.
+   3. Use links to track back to websites, other documents, papers, etc.
+   4. Add TODOs, etc. to put follow-ups in place.
+   5. Use =git= and =org= links to keep the place clean. If you need to scrap something and clean-up, either:
+      1. use commits to make sure you can "rewind" to the earlier version, or
+      2. archive the scrapped stuff to another place, and add a link if you don't want to forget about it
+      3. *stop keeping infinite iterations of ideas around like a packrat!!!*
+   6. Don't be afraid to sketch out on paper, whiteboards, etc. *However*, when done, either:
+      1. Record the result in the RRNB
+      2. File it somewhere and add a link in the RRNB to act as a reminder of where it is (and that it exists!)
+      3. Keep it on the desk/whiteboard/whatever either as an "Inbox" that I will process later, or if less obvious (like a random piece of paper), add a TODO to make sure I do one of the above things to archive it (unless it's just trash)
+** Lit review
+   1. Try to make clear goals on what you're doing (e.g., read X paper, do a search for a bunch of refs)
+   2. For searches:
+   3. For reading:
+      1. Start heading for the paper
+      2. add <<>> with the bibtex key <<authorYYYYtitle>> for easy linking
+      3. add bibtex chunk with ref info
+      4. add paper to folder
+      5. add link to paper
+      6. read!
+      7. make notes, etc. (and links to other things as needed) as you are reading
+      8. try to enter data in a reproducible way (w/page numbers)
+	 1. trees for syntax papers
+	 2. glossed examples
+	 3. tables of numerical data
+      9. create a more concise "upshot" summary if needed
+      10. if you don't finish in this sitting, at a note on where you leave off
+      11. commit changes in =git=!
+** Analysis
+   1. Use R code chunks to run R, save code
+   2. Don't be afraid to revise chunks!  If you have the inclination to make a new set of chunks rather than revise, ask yourself:
+      1. Am I revising as a set of fixes?  If so, just make sure the old version is committed in =git=, and revise away! You can "rewind" later if you need to.
+      2. Are you unsure about this new route of analysis?  If so, try to use the =branch= functionality in =git=.
+      3. Do you want to keep the old stuff around as an archival copy?  If it's something you need rapid and permanent access to, you might consider keeping both.  If it's something you may just want archival access to (like the initial analysis in a paper, before revisions), try using the =tag= functionality in =git= to mark the old commit as a "submitted draft" or something, and just revise in current drafts.
+   3. I need to figure out how to work in cached analyses.
+** Writing
+   1. The hard thing here is the collaborative flow.
+** Interruptions
+   1. Use =org-capture= (in my =.emacs=, set as =C-c r=) to jump to an "interruption" task in =org-mode=
+   2. This automatically handles clock-out and clock-in
+   3. When done, =C-c C-c= files interruption in =notes.org=, and automatically clocks you back in to previous task!
+   4. It also returns you to your /complete window arrangement/ of whatever you were doing before!  This is ridiculously awesome, and yet another reason to do everything in Emacs ;-)
+** Wrap-up
+   1. Save all changes
+   2. Use =git status= to check on any uncommitted changes
+   3. Use =git add= and =git commit= (or, if file is already being tracked, =git commit -a= as shortcut) to add and commit changes
+   4. Clock out (=C-c C-x C-o=)
