@@ -1,5 +1,5 @@
-% Created 2013-01-29 Tue 11:49
-\documentclass[11pt]{book}
+% Created 2013-02-13 Wed 13:22
+\documentclass{book}
 \usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{fixltx2e}
@@ -38,12 +38,54 @@
 \tableofcontents
 \vspace*{1cm}
 
-\part{Conceptual framework}
-\label{sec-1}
 \chapter{Introduction}
+\label{sec-1}
+\section{Two motivations}
 \label{sec-1-1}
-\section{Motivation}
-\label{sec-1-1-1}
+
+This book is about \emph{reproducible research}. A lot of the book is dedicated to fleshing out exactly what that term means, or perhaps what it \emph{should} mean, but moreover, this book is about \emph{really} reproducible research.  In order to tell you what \emph{that's} supposed to mean in a relatively concise way, I'm going to talk about the two different kinds of motivations that drive this book.
+
+One type of motivation is the desire to do Good Science.  It's my belief that scientific research should be conducted in a way that is maximally replicable, reproducible, transparent, and trustworthy.  I think of this as a kind of ethical obligation for scientists, both to the scientific community and to the people that fund our research (usually taxpayers, in my line of work).  I also believe that this is inherent to the success of the scientific method, but I am not an expert on the philosophy of science, so I won't go too deeply into that side of things, beyond expressing some of my personal opinions.  From this ethical/philosophical point of view, reproducible research is in line with the value system of science, and \emph{really} reproducible research is a set of real-world methods and techniques that do more than lip service to these ideas, they put them into action.
+
+The second type of motivation is the desire to be a Successful Scientist.  This is the more practical, pragmatic side of things. In short, being a successful scientist means doing work that gets published frequently in high-quality journals.  Obviously for many academics, there are other sides to professional life like service, teaching, etc.  Maybe some of the ideas here can apply some to those domains, too, but I'm going to focus on the research side. A successful researcher, from the most concrete point of view, is one with a good publishing record.  From this angle, the motivation of reproducible research is to help the researcher be more efficient, effective, and productive, and to produce higher-quality work that is worthy of the most prestigious journals. And similarly, \emph{really} reproducible research is meant to provide a concrete framework that's more than just recapitulating concepts about effective work habits.
+
+Now hopefully, if you're engaged in research, you're interested in one of these two sides, maybe both. If you neither care about (a) producing good science worthy of the faith and trust of other scientists and your funding sources, nor (b) being a successful researcher with a great publicaton record, then maybe you're in the wrong field.  The central aim of this book is to talk about how reproducibility --- \emph{real} reproducibility --- can assist you in both of these goals.
+\section{Three sides of the coin}
+\label{sec-1-2}
+
+In order to address these two goals, there are three (count `em!) sides of the coin we need to explore.  One side is the conceptual side, trying to lay out a framework of principles for understanding what it means to be reproducible.  The other side is a discussion of how these principles play out in the day-to-day activities of carrying out research.  But while this second side is more concrete, I will still focus on general principles that could be implemented in many different ways.  The third side is an actual, working implementation. You can see the third side (the edge) of the coin as either the part that connects theory and practice, or as I prefer to see it, as the edge of a wheel, where (to mix metaphors a bit) the rubber really meets the road.  It's fine to talk about good principles of reproducibility, but without a kind of ``manual'' for exactly how to put things into practice, there will be a high barrier to entry for most people, which means very little change.
+
+This book is aimed at the first two, more conceptual sides.  The companion to this book is a repository on GitHub that provides a set of tutorials and guides for using a set of (open source, free) software tools to actually implement the idea in the book.  This ``companion'' set of materials is ultimately what puts the ``really'' in the title of the book, but I just couldn't see how to effectively squeeze all those tutorials and things into a useful book format.  What I will do is include lots of hyperlinks in this book, in order to make it easier to connect from the idea or motivation for a particular kind of habit, workflow, or tool, to a set of tutorials that will help you get up and running with a tool that actually works as quickly as possible.  This brings me to the next section.
+\section{How to use this book}
+\label{sec-1-3}
+
+Here's how I imagine (and hope) this book could be used.  Read through some of the general chapters in the beginning, to get a sense of the big issues.  But then feel free to skip around to particular issues or problems that sound interesting.  The material in this book will lay out some of my thoughts on the topic, which will hopefully lead you to arrive at your own thoughts and opinions, and if my ideas intrigue you (either because they sound good, or because they sound terrible), you can follow some links to the GitHub repo to see how I personally attempt to implement my ideas. Those links will teach you how to use some piece of software (or non-software solution, if appropriate) to implement things yourself.  All the software and techniques I use are extremely customizable, so if you don't like exactly how I do it and want to tweak it for your own use, or if you think you can improve on it more generally, my tutorials will hopefully give you a good start towards being able to do that.
+
+At some point, I expect this book to become rather static, in the sense that I will revise things as my thinking changes, and as other revisions/corrections need to be made, but if I ever start to change my mind in a big enough way, I may just need to write a different book.  But the repository of tutorials and software is going to be a dynamic thing.  It is ultimately a selfish endeavor, because I will base the tutorials around my own usage and needs.  As those things change, so will the tutorials.  However, since I will be using \texttt{git} for version control, you will be able to ``roll back'' any particular tool or tutorial to an earlier phase, if you thought those worked better for you. At least, you'll be able to do this once you learn how to use \texttt{git}, which happens to be the base of what I'm going to recommend for a reproducible workflow! See, this stuff is already sounding useful, and we haven't even really gotten started yet\ldots{}
+
+But the point is that the tutorial stuff will change a lot (assuming I can keep up with it), in an ongoing way.  I would be very happy to have feedback on any aspect of this whole enterprise, whether you have suggestions or arguments with things in this book, or whether you have suggestions, problems, or alternatives to the implementation stuff on the GitHub site.  Please direct all your love/hate mail to \href{mailto:shoestringpsycholing1@gmail.com}{mailto:shoestringpsycholing1@gmail.com}.
+\section{The theses and structure of the book}
+\label{sec-1-4}
+
+This is not the first thing that's ever been written regarding reproducible research. It's a rather hot topic these days, and lots of smart people have been thinking/writing/talking/blogging/tweeting about it. One goal of this book is to push a few new ideas into the discussion. In particular:
+
+\begin{enumerate}
+\item Whether something is \emph{reproducible} is not an absolute, but is relative to the \emph{range} (i.e., precision, extent) of reproducibility, the \emph{domain} of reproducibility (i.e., what kind of activities are being reproduced?), and the \emph{audience} of reproducibility (i.e., reproducible for whom?).
+\item \emph{Reproducible} has to be able to extend beyond just the domain of data analysis; it should apply to all aspects of the cycle of research.
+\end{enumerate}
+
+I'll focus on these two theses more or less in turn.  I will start with a broad overview in chapter \ref{sec-2}. I'll review some of the previous work on the general topic, and further flesh out the broad concepts and motivations I've alluded to so far. This is more or less re-hashing and re-packaging a lot of things that other people have probably said better. Then in chapter \ref{sec-3} I'll talk about the \emph{dimensions} of reproducibility. I will argue that the notion of \emph{reproducibility} is inherently gradient and scalar, and that any definition or standard will have to make some decisions about the target dimensions that qualify something as ``in'' or ``out'' with respect to that local definition of what counts as reproducible. I will then go on to suggest some possible starting points for where to position a reasonably useful definition along these dimensions. That will conclude all of this nosebleed-level discussion.
+
+I'll then turn to a slightly more concrete discussion of how to make the day-to-day tasks of research more reproducible. In chapter \ref{sec-4} I propose a general schema for the cycle of research, from reading other people's work to producing your own work.  Again, my purpose here is not to go too deep into the philosophy of science, so this is just intended as a way of breaking down the research process into some large chunks. I think this is useful for the present purpose, because these different kinds of activities will involve different issues, problems, and standards regarding what it means to be \emph{reproducible}. But the big point is that this broad view of research goes far beyond the realm of what most people talk about when the term \emph{reproducible research} gets thrown around. 
+
+In the chapters that follow (\ref{sec-5} through \ref{sec-9}), I will focus in one one of these domains of research, and discuss some of the special challenges for reproducibility, and at times grapple with the question of whether (and how) activities in this domain could ever be reproducible. In each of these chapters, I will discuss how the other dimensions (\emph{range} and \emph{audience}) play out for that particular domain. Each chapter will also contain a general description of some practices that could lead to better reproducibility, and I will link heavily to my repository of tutorials that will implement specific software (or non-software) solutions to the implementation problem.
+
+The final chapter will conclude with some parting thoughts.
+
+So let's get started!
+\chapter{Principles}
+\label{sec-2}
+\label{principles}
 
 We live in an exciting but perilous time for science. The rise of the internet into a mature infrastructure, the continuing advances in personal and large-scale (e.g., cloud) computing, great strides in terms of data collection and analysis of types we could barely contemplate 10 or 20 years ago, and so on, provide an exciting new global realm of scientific discovery and collaboration. On the other hand, because of various domains of economic and social change, science is also under attack.  Basic scientific education (including ``hard'' and ``soft'' sciences) is in jeopardy in many spheres of public education.  Funding for basic science is becoming harder to come by, and more competitive.  Several severe cases of academic fraud have received a lot of exposure in the popular press. So while the potential for advances in sciences, including social sciences, has never been greater, issues of risk, accountability, and demonstrating value to society loom heavy over the academic landscape.
 
@@ -55,9 +97,9 @@ Within academia, there has been a growing recognition and dissatifaction of the 
 
 Currently, reproducible research is a fairly hot topic. The rise in popularity of the open-source statistical software \texttt{R} has generated a fair amount of interest, because this software encourages and enables reproducible research in a way that the more popular commercial software packages (SAS, SPSS, etc.) do not. The ideas of \emph{literate programming} \parencite{knuth1984literate} have spilled over from the programming world into other academic disciplines, and many of the tools developed for programmers to work with code are turning out to be useful for reproducible research in other fields.  There are \href{http://reproducibleresearch.org/}{websites dedicated to the topic}, countless blog posts on the virtues of \texttt{R} and \texttt{Sweave} for reproducible research, and in a new column in the journal \emph{Chance} dedicated to ethics in statistics, prominent statistician Andrew Gelman started off by examining a case of non-reproducible results (in the practical sense, that the authors refused to share the data that would allow for reproduction). A boycott movement against big for-profit publishers like Elsevier and proposed legislation like the Research Works Act have re-invigorated the dialogue about open access to publication of scientific results. So with all this current interest and influx of new tools, what's the purpose of this thing you're reading?  And conversely, why should \emph{you}, gentle reader, bother to care?  As the first part of the answer, I will discuss who this book is intended for.
 \section{Who is this book for?}
-\label{sec-1-1-2}
+\label{sec-2-1}
 
-Full disclosure: this book is primarily a selfish effort. I am putting this system together to improve my own methods and productivity, and having it all written down in an organized way is a helpful way for me to put my thoughts together into a system that's documented and clear. But this point also gets to the heart of it: I believe that adopting more reproducible methods will lead not only to Better Science, as alluded to by the intro above, but a more efficient and productive workflow. In other words, I believe that Really Reproducible Research (more on what I mean by that in section \ref{sec-1-2}) is not just The Right Thing for Science, but The Way to Get More Done and Published.
+Full disclosure: this book is primarily a selfish effort. I am putting this system together to improve my own methods and productivity, and having it all written down in an organized way is a helpful way for me to put my thoughts together into a system that's documented and clear. But this point also gets to the heart of it: I believe that adopting more reproducible methods will lead not only to Better Science, as alluded to by the intro above, but a more efficient and productive workflow. In other words, I believe that Really Reproducible Research (more on what I mean by that in section \ref{What-is-reproducible}) is not just The Right Thing for Science, but The Way to Get More Done and Published.
 
 Because of this last point, I intend my primary audience (after myself) to be academic scientists. It also follows from my self-centered goals that the specifics will be geared towards academics working in linguistics, and psycholinguistics. However, I expect that people from other fields could find the discussion and implementation helpful, and easily adapted. To frame it another way, ask yourself the following questions:
 
@@ -75,9 +117,9 @@ Because of this last point, I intend my primary audience (after myself) to be ac
 
 If you are still in the early stages of your career, and are unsure about whether anything like this may happen to you, just do a quick poll of your advisor, more advanced students, etc. If none of these things apply to you, you are likely either (a) not an academic, (b) an academic in a non-scientific field, or (c) already doing a fantastic job doing reproducible research.  But if any of these things apply, and you like the idea of doing something about it, then my hope is that this book will help.
 
-Finally, this book does \emph{not} assume you already have facility with programming, etc. Many of the implementation tools I'll discuss in Part \ref{sec-2} involve some level of savvy in programming, using command-line tools, and other things normally associated with steep learning curves. My intention is to present arguments for why these tools are worth the effort to learn and use, but I will start out assuming that the reader is a user of commercial products like the Windows or Mac operating systems, programs like Microsoft Word and maybe a little of Excel, and a graphical stats package like SPSS or JMP, if anything.  My hope is that this book could be picked up by people early in their academic careers and applied as they go. My greater hope is that the ideas will be appealing enough and the implementation easy and effective enough that even experienced, established academics could find some utility in improving some of their habits and/or tools.  People tend to get entrenched, though, so I'm not holding my breath on the latter group.  But one can hope\ldots{}
+Finally, this book does \emph{not} assume you already have facility with programming, etc. Many of the implementation tools I'll discuss in Part \ref{sec-11} involve some level of savvy in programming, using command-line tools, and other things normally associated with steep learning curves. My intention is to present arguments for why these tools are worth the effort to learn and use, but I will start out assuming that the reader is a user of commercial products like the Windows or Mac operating systems, programs like Microsoft Word and maybe a little of Excel, and a graphical stats package like SPSS or JMP, if anything.  My hope is that this book could be picked up by people early in their academic careers and applied as they go. My greater hope is that the ideas will be appealing enough and the implementation easy and effective enough that even experienced, established academics could find some utility in improving some of their habits and/or tools.  People tend to get entrenched, though, so I'm not holding my breath on the latter group.  But one can hope\ldots{}
 \section{Goals}
-\label{sec-1-1-3}
+\label{sec-2-2}
 
 So what exactly do I hope to accomplish with this book?  What exactly should you, the reader, expect to be able to get out of it?  To return to my motivations and audience, I would like to enable linguists and psycholinguists (and others, perhaps) to produce Really Reproducible Research, from soup to nuts.  Currently, there are bits and pieces of resources and ideas spread around multiple fields and websites and repositories. My purpose here is to collect what I think are the best of the best, and assemble them into a system of principles, tools, and methods that will work well together for a ``complete'' system of Really Reproducible Research.  Additionally, many resources on reproducble research (including the website of that name) are geared primarily towards computational or statistical work, and their principles can be summed up as ``share your data, include your code, and make your code legible to others.'' These principles are certainly relevant, but they don't capture the whole messy system of producing scientific research that is truly reproducible.  
 
@@ -85,11 +127,12 @@ Therefore, on the one hand I aim to present a more general discussion and system
 
 The second part of the book makes this more concrete by spelling out a particular implementation.  The implementation is partly a set of software recommendations and partly a set of workflows, procedures, and methods for doing typical research tasks in a way to support Really Reproducible Research.  There will be plenty of room for customization, because I don't expect that any two researchers will want to do things in exactly the same way, but the goal is to be as specific and concrete as possible, so that you are not left wondering about how to connect the dots.  Some suggestions for alternatives will be included, but I will focus on tools that I use and that I think are best for the job, and I will not go through an exhaustive review of tools I'm less familiar with.
 
-Finally, the third part of the book is a set of tutorials designed to enable you to use the tools in the implementation.  For example, I discuss Emacs and org-mode as major tools in the implementation.  Most people are not Emacs or org-mode users.  Both Emacs and org-mode have extensive documentation, including books, tutorials, and tons of articles spread across the web.  However, existing documentation is both more and less than what you would need to implement the system I describe in Part \ref{sec-2}. They are \emph{more} in the sense that there are \emph{tons} of functions in both Emacs and org-mode that may be great features and very useful, but not relevant or necessary for the system I outline here.  Existing tutorials and documentation also provides \emph{less} than what I do here, in the sense that using these tools in the specific way I describe in Part \ref{sec-2} may not be obvious, even if you worked your way through the general manuals or tutorials already available.  In other words, my goal is not to teach you Emacs for all general purposes, but rather to teach you how to use Emacs in the system of Really Reproducible Research.  Even if you know Emacs, there may be something useful for you in my tutorials, but there will also be lots more to learn about Emacs after you've mastered my tutorials. And as I mentioned in the previous section, I will assume that you have experience with Word, and that's about it, so you should approach the tutorials with minimal anxiety.
+Finally, the third part of the book is a set of tutorials designed to enable you to use the tools in the implementation.  For example, I discuss Emacs and org-mode as major tools in the implementation.  Most people are not Emacs or org-mode users.  Both Emacs and org-mode have extensive documentation, including books, tutorials, and tons of articles spread across the web.  However, existing documentation is both more and less than what you would need to implement the system I describe in Part \ref{sec-11}. They are \emph{more} in the sense that there are \emph{tons} of functions in both Emacs and org-mode that may be great features and very useful, but not relevant or necessary for the system I outline here.  Existing tutorials and documentation also provides \emph{less} than what I do here, in the sense that using these tools in the specific way I describe in Part \ref{sec-11} may not be obvious, even if you worked your way through the general manuals or tutorials already available.  In other words, my goal is not to teach you Emacs for all general purposes, but rather to teach you how to use Emacs in the system of Really Reproducible Research.  Even if you know Emacs, there may be something useful for you in my tutorials, but there will also be lots more to learn about Emacs after you've mastered my tutorials. And as I mentioned in the previous section, I will assume that you have experience with Word, and that's about it, so you should approach the tutorials with minimal anxiety.
 
 With these three parts, my ultimate goals are to (1) describe what I think are the critical elements of reproducible research and convince you that these are worthy and useful goals, (2) describe a concrete system for achieving reproducible research in the real world of working academia, and (3) enable readers with no knowledge of the tools I describe to learn and apply these tools in their own personal approach to reproducible research. This way, I hope that the end result of this book is not just a series of suggestions, but the actual means to implement and improve upon my idea in your own work.
-\chapter{What is ``reproducible''?}
-\label{sec-1-2}
+\chapter{Dimensions of reproducibility}
+\label{sec-3}
+\label{dimensions}
 
 Thus far, I have only hinted vaguely at what \emph{reproducible} really means.  I have frequently used the phrase ``Really Reproducible,'' implying that some values of ``reproducible'' may be less than desired.  In this chapter, I will tackle the definition of ``reproducible'' in a more systematic way.  I argue that ``reproducible'' is a continuum, and even more so, a two-dimensional continuum.  With this understanding, we are in a better position to zero in on appropriate principles and standards in defining a target for what Really Reproducible means.
 
@@ -97,7 +140,7 @@ The first approximation of reproducible comes from the general idea in the scien
 
 But when you start thinking about this seriously, it's apparent that this raises two questions.  Reproducible by who?  How ``similar'' must the data, analysis, and results be for it to qualify as ``reproducible''?  These are what I call the \emph{domain} and \emph{range} of reproducibility.
 \section{Domain: the audience}
-\label{sec-1-2-1}
+\label{sec-3-1}
 
 The first dimension of reproducibility is the \emph{domain} or the \emph{audience}.  In short, \emph{who} do you expect to be able to reproduce your work? On one end of the continuum is yourself.  If you cannot reproduce your own work, how could you expect anyone else to?  On the other end of the continuum is virtually anyone in the world, which is probably almost always impossible.  Figure \ref{domain-continuum} illustrates a few important values for the domain.
 
@@ -111,16 +154,16 @@ The first dimension of reproducibility is the \emph{domain} or the \emph{audienc
   \end{figure}
   \end{centering}
 \section{Range: the precision}
-\label{sec-1-2-2}
+\label{sec-3-2}
 \section{The minimum}
-\label{sec-1-2-3}
+\label{sec-3-3}
 \section{Publication standards}
-\label{sec-1-2-4}
+\label{sec-3-4}
 \section{Wide dissemination}
-\label{sec-1-2-5}
-\chapter{The scientific loop}
-\label{sec-1-3}
-
+\label{sec-3-5}
+\chapter{The cycle of research}
+\label{sec-4}
+\label{sciencecycle}
 
   \begin{tikzpicture}
   \def \n {5}
@@ -142,64 +185,66 @@ The first dimension of reproducibility is the \emph{domain} or the \emph{audienc
   \draw[<-, >=latex] ({360/\n * 3 +\margin - 54}:\radius) 
     arc ({360/\n * 3 +\margin - 54}:{360/\n * 4 -\margin - 54}:\radius);
   \end{tikzpicture}
-\section{Scholarship}
-\label{sec-1-3-1}
-\section{Theory}
-\label{sec-1-3-2}
-\section{Data collection}
-\label{sec-1-3-3}
-\section{Data analysis}
-\label{sec-1-3-4}
-\section{Reporting}
-\label{sec-1-3-5}
-\part{Implementation}
-\label{sec-2}
-\chapter{Guiding principles}
-\label{sec-2-1}
-\section{Free and open source}
-\label{sec-2-1-1}
-\section{Cross-platform}
-\label{sec-2-1-2}
-\section{Stable}
-\label{sec-2-1-3}
-\section{Well-documented}
-\label{sec-2-1-4}
-\section{Customizable}
-\label{sec-2-1-5}
-\chapter{Summary of tools}
-\label{sec-2-2}
-\section{Emacs}
-\label{sec-2-2-1}
-\section{Org-mode}
-\label{sec-2-2-2}
-\section{Git}
-\label{sec-2-2-3}
-\section{\LaTeX{}}
-\label{sec-2-2-4}
-\section{Python}
-\label{sec-2-2-5}
-\section{R}
-\label{sec-2-2-6}
-\section{(Emacs) Lisp}
-\label{sec-2-2-7}
 \chapter{Scholarship}
-\label{sec-2-3}
+\label{sec-5}
+\label{scholarship}
+\chapter{Theory}
+\label{sec-6}
+\label{theory}
 \chapter{Data collection}
-\label{sec-2-4}
+\label{sec-7}
+\label{collection}
 \chapter{Data analysis}
-\label{sec-2-5}
-\chapter{Sharing}
-\label{sec-2-6}
-\chapter{Collaboration}
-\label{sec-2-7}
-\chapter{Putting it all together}
-\label{sec-2-8}
-\part{Tutorials}
-\label{sec-3}
-\chapter{Walkthrough: traditional linguistics paper}
-\label{sec-3-1}
-\chapter{Walkthrough: psycholinguistics paper}
-\label{sec-3-2}
+\label{sec-8}
+\label{analysis}
+\chapter{Reporting}
+\label{sec-9}
+\label{reporting}
+\chapter{Conclusions}
+\label{sec-10}
+\label{conclusions}
+\chapter{Implementation}
+\label{sec-11}
+\section{Guiding principles}
+\label{sec-11-1}
+\subsection{Free and open source}
+\label{sec-11-1-1}
+\subsection{Cross-platform}
+\label{sec-11-1-2}
+\subsection{Stable}
+\label{sec-11-1-3}
+\subsection{Well-documented}
+\label{sec-11-1-4}
+\subsection{Customizable}
+\label{sec-11-1-5}
+\section{Summary of tools}
+\label{sec-11-2}
+\subsection{Emacs}
+\label{sec-11-2-1}
+\subsection{Org-mode}
+\label{sec-11-2-2}
+\subsection{Git}
+\label{sec-11-2-3}
+\subsection{\LaTeX{}}
+\label{sec-11-2-4}
+\subsection{Python}
+\label{sec-11-2-5}
+\subsection{R}
+\label{sec-11-2-6}
+\subsection{(Emacs) Lisp}
+\label{sec-11-2-7}
+\section{Scholarship}
+\label{sec-11-3}
+\section{Data collection}
+\label{sec-11-4}
+\section{Data analysis}
+\label{sec-11-5}
+\section{Sharing}
+\label{sec-11-6}
+\section{Collaboration}
+\label{sec-11-7}
+\section{Putting it all together}
+\label{sec-11-8}
 
 
 \printbibliography

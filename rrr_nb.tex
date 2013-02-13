@@ -1,4 +1,4 @@
-% Created 2013-02-10 Sun 16:08
+% Created 2013-02-13 Wed 10:42
 \documentclass[11pt]{article}
 \usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
@@ -218,6 +218,7 @@ The idea is one-stop shopping for all of your work.  You put your ideas into it.
 
 \begin{enumerate}
 \item Find (or create) task in .org file (life, or some other agenda file)
+\item Start Pomodoro (25 min.) timer
 \item Clock in (\texttt{C-c C-x C-i})
 \item Start \texttt{git} bash, \texttt{cd} to project directory
 \item Run \texttt{git status} to make sure there are no currently loose threads
@@ -227,19 +228,67 @@ The idea is one-stop shopping for all of your work.  You put your ideas into it.
 
 \begin{enumerate}
 \item Use RRNB as a place to make notes, sketch out ideas, etc.
+\item Set some sort of concrete goals for a particular ``session'' of thinking.
+\item Use links to track back to websites, other documents, papers, etc.
+\item Add TODOs, etc. to put follow-ups in place.
 \item Use \texttt{git} and \texttt{org} links to keep the place clean. If you need to scrap something and clean-up, either:
 \begin{enumerate}
 \item use commits to make sure you can ``rewind'' to the earlier version, or
 \item archive the scrapped stuff to another place, and add a link if you don't want to forget about it
 \item \textbf{stop keeping infinite iterations of ideas around like a packrat!!!}
 \end{enumerate}
+\item Don't be afraid to sketch out on paper, whiteboards, etc. \textbf{However}, when done, either:
+\begin{enumerate}
+\item Record the result in the RRNB
+\item File it somewhere and add a link in the RRNB to act as a reminder of where it is (and that it exists!)
+\item Keep it on the desk/whiteboard/whatever either as an ``Inbox'' that I will process later, or if less obvious (like a random piece of paper), add a TODO to make sure I do one of the above things to archive it (unless it's just trash)
+\end{enumerate}
 \end{enumerate}
 \subsection{Lit review}
 \label{sec-4-3}
+
+\begin{enumerate}
+\item Try to make clear goals on what you're doing (e.g., read X paper, do a search for a bunch of refs)
+\item For searches:
+\item For reading:
+\begin{enumerate}
+\item Start heading for the paper
+\item add <<>> with the bibtex key \label{authorYYYYtitle}authorYYYYtitle for easy linking
+\item add bibtex chunk with ref info
+\item add paper to folder
+\item add link to paper
+\item read!
+\item make notes, etc. (and links to other things as needed) as you are reading
+\item try to enter data in a reproducible way (w/page numbers)
+\begin{enumerate}
+\item trees for syntax papers
+\item glossed examples
+\item tables of numerical data
+\end{enumerate}
+\item create a more concise ``upshot'' summary if needed
+\item if you don't finish in this sitting, at a note on where you leave off
+\item commit changes in \texttt{git}!
+\end{enumerate}
+\end{enumerate}
 \subsection{Analysis}
 \label{sec-4-4}
+
+\begin{enumerate}
+\item Use R code chunks to run R, save code
+\item Don't be afraid to revise chunks!  If you have the inclination to make a new set of chunks rather than revise, ask yourself:
+\begin{enumerate}
+\item Am I revising as a set of fixes?  If so, just make sure the old version is committed in \texttt{git}, and revise away! You can ``rewind'' later if you need to.
+\item Are you unsure about this new route of analysis?  If so, try to use the \texttt{branch} functionality in \texttt{git}.
+\item Do you want to keep the old stuff around as an archival copy?  If it's something you need rapid and permanent access to, you might consider keeping both.  If it's something you may just want archival access to (like the initial analysis in a paper, before revisions), try using the \texttt{tag} functionality in \texttt{git} to mark the old commit as a ``submitted draft'' or something, and just revise in current drafts.
+\end{enumerate}
+\item I need to figure out how to work in cached analyses.
+\end{enumerate}
 \subsection{Writing}
 \label{sec-4-5}
+
+\begin{enumerate}
+\item The hard thing here is the collaborative flow.
+\end{enumerate}
 \subsection{Interruptions}
 \label{sec-4-6}
 
