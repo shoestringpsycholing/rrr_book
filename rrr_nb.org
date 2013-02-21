@@ -184,3 +184,48 @@ The idea is one-stop shopping for all of your work.  You put your ideas into it.
    2. Use =git status= to check on any uncommitted changes
    3. Use =git add= and =git commit= (or, if file is already being tracked, =git commit -a= as shortcut) to add and commit changes
    4. Clock out (=C-c C-x C-o=)
+* Tutorial notes
+** The foundation
+*** git for version control
+This is Step 1, because:
+    1. it's minimal
+       - quick to install
+       - lightweight
+       - can start using with just a few simple commands
+	 1. =init=
+	 2. =status=
+	 3. =add=
+	 4. =rm=
+	 5. =mv=
+	 6. =commit=
+	 7. =log=
+    2. starts good habits (committing changes)
+    3. relatively light intro to the command line
+    4. works under /any/ current workflow (including Word docs, Excel, SPSS, etc.)
+    5. scales up
+    6. addresses several big issues in reproducibility:
+       1. tracking history of changes
+       2. /useful/ history (rollback, branching, diffing etc.)
+       3. enables collaboration in RRR
+*** Emacs as a work environment
+This is Step 2, because:
+    1. Emacs is a good general-purpose work environment (provides complete computing environment, not just text editor)
+    3. It has =org-mode=!
+    4. Works in simple text, and allows /everything/ to be edited as text (shell, processes, directories, etc.)
+    5. Can learn to use basic editing in an hour (or les)
+    6. Scales infinitely!
+    7. Customizable, and customizations are very /shareable/ (and thus reproducible! Compare to settings in Word, etc.)
+
+What can you do when you start in Emacs?
+    - Compose simple text
+      - emails?
+      - text for a paper
+      - code (if you're coding)
+      - taking notes (with org-mode)
+
+*** org-mode for writing, project management, and the RRN
+This is Step 3, because:
+    1. Provides really /useful/ text editing mode within Emacs
+    2. Foundation of the Reproducible Research Notebook (RRN)
+    3. Can learn basics quickly
+    4. Scales infinitely, like Emacs!
